@@ -73,9 +73,9 @@ function App() {
   };
 
   const handleEdit = (e, id) => {
-    const updatedTodos = todos.map((item) =>
-      item.id === id ? { ...item, todo: todo } : item
-    );
+    let t = todos.filter(i=>i.id === id);
+    setTodo(t[0].todo)
+      let updatedTodos = todos.filter(item => item.id !== id);
     setTodos(updatedTodos);
     saveToLS(updatedTodos);
   };
@@ -87,7 +87,7 @@ function App() {
   return (
     <>
       <div className="w-full h-screen bg-slate-900 flex items-center justify-center" id="main">
-        <div className=" bg-zinc-50 min-h-[80%] rounded-s-sm m-4 text-slate-800 container lg:w-3/4">
+        <div className=" bg-zinc-50 h-[80%] rounded-s-sm m-4 text-slate-800 container lg:w-3/4">
           <div className="top-head py-2 flex items-center justify-between select-none border-b border-slate-900 lg:flex-row md:flex-col max-[640px]:flex-col">
             <h1 className='text-3xl font-semibold p-5 max-[640px]:text-xl'>Manage Your Tasks</h1>
             <div className='flex items-center lg:justify-end w-3/4 max-[640px]:justify-center md:justify-center lg:w-1/2'>
