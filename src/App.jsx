@@ -87,9 +87,9 @@ function App() {
   return (
     <>
       <div className="w-full h-screen bg-slate-900 flex items-center justify-center" id="main">
-        <div className=" bg-zinc-50 min-h-[90vh] rounded-s-sm m-4 text-slate-800 container lg:w-3/4">
+        <div className=" bg-zinc-50 min-h-[90%] rounded-s-sm m-4 text-slate-800 container lg:w-3/4">
           <div className="top-head py-2 flex items-center justify-between select-none border-b border-gray-800 lg:flex-row md:flex-col max-[640px]:flex-col">
-            <h1 className='text-3xl font-semibold p-5 max-[640px]:text-sm'>Manage Your Tasks</h1>
+            <h1 className='text-3xl font-semibold p-5 max-[640px]:text-xl'>Manage Your Tasks</h1>
             <div className='flex items-center lg:justify-end w-3/4 max-[640px]:justify-center md:justify-center lg:w-1/2'>
               <input onChange={handleChange} value={todo} className='w-3/4 px-3 py-3 border border-slate-950 rounded-md outline-none text-sm' type="text" placeholder='Write Your Task' />
               <button onClick={handleAdd} className='mx-2 my-2 px-3 py-2 bg-yellow-400 text-black text-lg rounded-md '>Add</button>
