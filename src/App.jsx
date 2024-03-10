@@ -95,7 +95,7 @@ function App() {
               <button onClick={handleAdd} className='mx-2 my-2 px-3 py-2 bg-yellow-400 text-black text-lg rounded-md '>Add</button>
             </div>
           </div>
-          <div className='flex items-center justify-center border-b border-gray-800 w-1/2 m-auto py-2'>
+          <div className='show flex items-center justify-center border-b border-gray-800 w-1/2 m-auto py-2'>
             <input className='mr-2' onChange={toggleFinished} type="checkbox" name="" checked={showFinished} id="" />Show All Todos
           </div>
           <div className="todos m-2 select-none">
