@@ -72,13 +72,15 @@ function App() {
     }
   };
 
-  const handleEdit = (e, id) => {
-    let t = todos.filter(i=>i.id === id);
-    setTodo(t[0].todo)
-      let updatedTodos = todos.filter(item => item.id !== id);
-    setTodos(updatedTodos);
-    saveToLS(updatedTodos);
-  };
+const handleEdit = (id) => {
+  const todoToEdit = todos.find(item => item.id === id);
+  if (!todoToEdit) return;
+  setTodo(todoToEdit.todo);
+  const updatedTodos = todos.filter(item => item.id !== id);
+  setTodos(updatedTodos);
+  // Save updated todos to local storage
+  saveToLS(updatedTodos);
+};
 
   const toggleFinished = () => {
     setshowFinished(!showFinished);
@@ -112,7 +114,9 @@ function App() {
                   <p className={`status font-semibold border-b border-black px-2 py-1 max-[640px]:text-xs ${item.isCompleted ? 'text-green-400' : 'text-yellow-400'} `}>
                     {item.isCompleted ? "Completed" : "inProgress"}
                   </p>
-                  <button onClick={(e) => { handleEdit(e, item.id) }} className='border border-black bg-green-400 px-2 py-1 text-black rounded max-[640px]:text-black'>{window.innerWidth <=600 ?(<MdEdit />) : ('Edit')}</button>
+                 <button onClick={() => handleEdit(item.id)} className='border border-black bg-green-400 px-2 py-1 text-black rounded max-[640px]:text-black'>
+                    {window.innerWidth <= 600 ? <MdEdit /> : 'Edit'}
+                 </button>
                   <button onClick={(e) => { handleDelete(item.id) }} className='border border-black bg-red-400 px-2 py-1 text-black rounded max-[640px]:text-black'>{window.innerWidth <=600 ?(<MdDelete />) : ('Delete')}</button>
                 </div>
               </div>)
